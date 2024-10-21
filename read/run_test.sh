@@ -14,7 +14,7 @@ if [ $# -eq 0 ]; then
 fi
 
 cd c
-gcc -O2 -o main main.c ./src/$1.c
+gcc -o main main.c ./src/$1.c
 RESULT_C=`./main`
 cd ../rust
 # if [ $1 == "global_struct" || $1 == "global_variable" ]; then
