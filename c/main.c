@@ -2,7 +2,7 @@
 #include <time.h>
 
 void run();
-#define TEST_NUM 1
+#define TEST_NUM 100
 int main() {
   clock_t start, end;
   double cpu_time_used = 0.0;

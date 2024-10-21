@@ -12,7 +12,7 @@ mod global_variable_atomic;
 mod global_variable_refcell;
 
 use std::time::{Duration, Instant};
-const TEST_NUM: u32 = 1; // refcell issue
+const TEST_NUM: u32 = 100; // refcell issue
 fn main() {
     let mut duration: Duration = Duration::new(0, 0);
     for _ in 0..TEST_NUM {

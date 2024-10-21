@@ -5,9 +5,11 @@ lazy_static::lazy_static! {
     static ref GLOBAL_VAR: Arc<RwLock<i32>> = Arc::new(RwLock::new(0));
 }
 fn increment_global() {
-    for _ in 0..NUM_ITERATIONS {
-        let mut data = GLOBAL_VAR.write().unwrap();
-        *data += 1;
+    for i in 0..NUM_ITERATIONS {
+        if i % 2 == 0 {
+            let mut data = GLOBAL_VAR.write().unwrap();
+            *data += 1;
+        }
     }
 }
 

@@ -4,7 +4,9 @@ int global_var = 0;
 
 void increment_global() {
   for (int i = 0; i < NUM_ITERATIONS; i++) {
-    global_var++;
+    if (i % 2 == 0) {
+      global_var++;
+    }
   }
 }
 

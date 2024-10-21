@@ -12,10 +12,12 @@ thread_local! {
 }
 
 fn increment_global() {
-    for _ in 0..NUM_ITERATIONS {
-        GLOBAL_DATA.with(|data| {
-            data.borrow_mut().value += 1; // RefCell을 통해 값 증가
-        });
+    for i in 0..NUM_ITERATIONS {
+        if i % 2 == 0 {
+            GLOBAL_DATA.with(|data| {
+                data.borrow_mut().value += 1; // RefCell을 통해 값 증가
+            });
+        }
     }
 }
 

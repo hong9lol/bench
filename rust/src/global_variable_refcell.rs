@@ -7,10 +7,12 @@ thread_local! {
 }
 
 fn increment_global() {
-    for _ in 0..NUM_ITERATIONS {
-        GLOBAL_VAR.with(|value| {
-            *value.borrow_mut() += 1; // RefCell을 통해 증가
-        });
+    for i in 0..NUM_ITERATIONS {
+        if i % 2 == 0 {
+            GLOBAL_VAR.with(|value| {
+                *value.borrow_mut() += 1; // RefCell을 통해 증가
+            });
+        }
     }
 }
 

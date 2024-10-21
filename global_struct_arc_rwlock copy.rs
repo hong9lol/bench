@@ -12,11 +12,11 @@ lazy_static::lazy_static! {
 }
 
 fn increment_global() {
-    for i in 0..NUM_ITERATIONS {
-        if i % 2 == 0 {
-            let mut data = GLOBAL_DATA.write().unwrap();
-            data.value += 1;
-        }
+    let mut a: i32 = 0;
+    for _ in 0..NUM_ITERATIONS {
+        a = GLOBAL_DATA.read().unwrap().value;
+
+        // data.value += 1;
     }
 }
 

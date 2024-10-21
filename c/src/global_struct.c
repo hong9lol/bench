@@ -8,7 +8,9 @@ GlobalStruct global_data;
 
 void increment_global() {
   for (int i = 0; i < NUM_ITERATIONS; i++) {
-    global_data.value++;
+    if (i % 2 == 0) {
+      global_data.value++;
+    }
   }
 }
 

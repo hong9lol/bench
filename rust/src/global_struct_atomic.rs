@@ -12,8 +12,10 @@ static GLOBAL_DATA: GlobalStruct = GlobalStruct {
 };
 
 fn increment_global() {
-    for _ in 0..NUM_ITERATIONS {
-        GLOBAL_DATA.value.fetch_add(1, Ordering::Relaxed);
+    for i in 0..NUM_ITERATIONS {
+        if i % 2 == 0 {
+            GLOBAL_DATA.value.fetch_add(1, Ordering::Relaxed);
+        }
     }
 }
 
