@@ -1,0 +1,19 @@
+use std::sync::{Arc, RwLock};
+const NUM_ITERATIONS: usize = 1000000;
+
+lazy_static::lazy_static! {
+    static ref GLOBAL_VAR: Arc<RwLock<i32>> = Arc::new(RwLock::new(0));
+}
+fn increment_global() {
+    for i in 0..NUM_ITERATIONS {
+        if *GLOBAL_VAR.read().unwrap() % 2 == 0 {
+            let a = 0;
+        }
+    }
+}
+
+pub fn run() {
+    increment_global();
+    // let final_value = GLOBAL_VAR.read().unwrap(); // RwLock을 사용하여 읽기 잠금
+    // println!("Final value: {}", final_value);
+}
